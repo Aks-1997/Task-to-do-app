@@ -1,0 +1,48 @@
+.Header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20vw;
+    background-color: antiquewhite;;
+}
+
+.button{
+    height: 45px;
+    width: 140px;
+}
+
+.todo{
+    font-size: 18px;
+}
+
+@media only screen and (max-width:768px)
+{
+    .Header{
+        height: 25vw;
+    }
+
+    .button{
+        height: 40px;
+        width: 120px;
+        font-size: 12px !important;
+    }
+    .todo{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width:576px)
+{
+    .Header{
+        height: 30vw;
+    }
+
+    .button{
+        height: 30px;
+        width: 110px;
+        font-size: 10px !important;
+    }
+    .todo{
+        font-size: 14px;
+    }
+}
