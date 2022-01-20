@@ -15,8 +15,7 @@ const AddTask = (props) => {
     const [show,setShow] = React.useState(true);
     const [title,setTitle] = React.useState("");
     const [warning,setWarning] = React.useState(false);
-    const saveHandler = (e) => {
-        e.preventDefault();
+    const saveHandler = () => {
         if(title!="")
         {
             const task = {
@@ -45,6 +44,13 @@ const AddTask = (props) => {
         })
     }
 
+    const handleEnter = (event) => {
+        if(event.key=="Enter")
+        {
+            saveHandler();
+        }
+    }
+
     console.log("Add Task");
     return (
         <Modal show={show} modalClosed={modalClosed}>
@@ -59,7 +65,9 @@ const AddTask = (props) => {
                         placeholder="Enter Task"
                         value={title}
                         onChange={event => {setTitle(event.target.value)}}
+                        onKeyDown={handleEnter}
                         className={classes.textarea}
+                        autoFocus
                     /> 
                 </div>
                 {warning?(<div className={classes.warning+" ms-2"}>

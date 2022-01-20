@@ -21,8 +21,7 @@ const EditTask = (props) => {
     })
     const [title,setTitle] = React.useState(tasks.title);
     
-    const editHandler = (e) => {
-        e.preventDefault();
+    const editHandler = () => {
         if(title!="")
         {
             let tasks =  task.map(info=> {
@@ -59,6 +58,13 @@ const EditTask = (props) => {
         })
     }
 
+    const handleEnter = (event) => {
+        if(event.key=="Enter")
+        {
+            editHandler();
+        }
+    }
+
     return (
         <Modal show={show} modalClosed={modalClosed}>
             <Container>
@@ -73,6 +79,7 @@ const EditTask = (props) => {
                         placeholder="Enter Task"
                         value={title}
                         onChange={event => {setTitle(event.target.value)}}
+                        onKeyDown={handleEnter}
                         className={classes.textarea}
                     /> 
                 </div>

@@ -10,7 +10,6 @@ const EditTask = React.lazy(()=>import('../EditTask/EditTask'));
 const Tasks = (props) => {
 
     const tasks = useSelector(state => {
-       console.log("state",state);
         return state.data
     });
     
